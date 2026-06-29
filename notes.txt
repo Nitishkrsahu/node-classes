@@ -1,0 +1,273 @@
+                                            NodeJS
+
+What is NodeJS
+
+ - Node.js is a free, open-source, cross-platform JavaScript runtime environment that lets developers create servers, web apps, command line tools and scripts.
+
+
+NodeJS Features
+
+ - Node JS uses JavaScript as its language
+ - JavaScript is used with only language Features.
+ - you can't use DOM & BOM methods
+
+  * Variables
+  * Data Types
+  * Operators
+  * Statements
+  * Functions
+  * OOP Concepts
+    - Modules
+    - Classes
+
+  - Server Side programming is all about handling various types of objects & techniques.
+
+  - Server Side objects include
+
+   a) request
+   b) response
+   c) session
+   d) application
+   e) cookie etc...
+
+  - server Side Techniques include
+
+  a) caching
+  b) Routing
+  c) Model Binding
+  d) Data Binding
+  f) Event Binding etc...
+
+
+  Creating a server side application using NodeJS
+
+  1. Create a new folder on your PC for server application
+
+     D:\Server-app
+ 
+  2. Open Folder in VS code
+
+  3. Run the following commands
+
+   > npm init -y               // generate package.json
+
+   > npm init @eslint/config@latest  // It sets up language analytics
+
+  ?What do you want to lint? : JavaScript
+  ?How would you like to use ESLint? : To check syntax and find problems
+  ?What type of modules does your project use? : Common JS
+  ?Which framework does your project use? : None of these
+  ?Does your project use TypeScript? : No
+  ?Where does your code run? : Node
+  ?Would you like to install them now? : yes
+  ?Which package manager do you want to use? : 
+
+ - This will generate following files into project
+ 
+   eslint.config.mjs
+   node_modules[folder]
+
+ 4. Server side programs are written in a JavaScript file with extension ".js, .mjs, .cjs".
+
+ 5. Add a new file by name "index.js" into root level of project.
+
+   index.js
+   console.log("welcome to NodeJS");
+
+ 6. Go to package.json file and setup script
+
+  "scripts":{
+     ...
+        "start": node index.js"
+     },
+
+ => Node is a compiler used to compile and run JavaScript file server side.
+
+ 7. Run the following command from terminal
+
+  > npm run start
+
+                              Node Modules
+
+- Node JS provides several built-in modules to handle various interactions server side.
+- Module is a set of classes, functions and values.
+
+ 1. Http Module
+
+ - It provides a set of classes and functions that are required to create a server, web application and scripts.
+ - You can create a server, handle request from client and send a customized response to the client request.
+ - Http Module provides "createServer()" method to create a server.
+ - Modules are imported by using "require()" method in CJS system.
+ 
+Syntax:
+
+  const http = require('http');
+  
+  http.createServer(function(request, response){
+  
+  })
+
+ - Every server comprises of 2 basic objects
+
+ a) Request
+ b) Response
+
+ - Request Object is used by server to request data from client, which includes
+
+  a) Query String
+  b) Cookies
+  c) Local Storage
+  d) session Storage
+  e) Form Body etc...
+
+ - Response Object is used to send response to client, which includes
+   a) Text
+   b) HTML
+   c) XML
+   d) JSON
+   e) File etc.
+
+ 
+   Syntax:
+
+  http.createServer(function(req, res){
+       res.writeHead();
+       res.write();
+    })
+
+ - writeHead() uses a status code to verify the request.
+ - Http Status code will range from 100 to 500.
+
+ 1XX  : Codes related to the process and action to execute.
+ 2XX  : Codes related to confirmation.
+ 3XX  : Codes related to methods & redirection.
+ 4XX  : Codes related to client side issues.
+ 5XX  : codes related to server side issues                     
+ 
+
+ Ex: 
+ const http = require('http');
+
+  Object.keys(http.STATUS_CODES).map(key=>{
+    console.log(`${key}: ${http.STATUS_CODES[key]}`);
+  })
+
+ OutPut:
+
+100: Continue
+101: Switching Protocols
+102: Processing
+103: Early Hints
+200: OK
+201: Created
+202: Accepted
+203: Non-Authoritative Information
+204: No Content
+205: Reset Content
+206: Partial Content
+207: Multi-Status
+208: Already Reported
+226: IM Used
+300: Multiple Choices
+301: Moved Permanently
+302: Found
+303: See Other
+304: Not Modified
+305: Use Proxy
+307: Temporary Redirect
+308: Permanent Redirect
+400: Bad Request
+401: Unauthorized
+402: Payment Required
+403: Forbidden
+404: Not Found
+405: Method Not Allowed
+406: Not Acceptable
+407: Proxy Authentication Required
+408: Request Timeout
+409: Conflict
+410: Gone
+411: Length Required
+412: Precondition Failed
+413: Payload Too Large
+414: URI Too Long
+415: Unsupported Media Type
+416: Range Not Satisfiable
+417: Expectation Failed
+418: I'm a Teapot
+421: Misdirected Request
+422: Unprocessable Entity
+423: Locked
+424: Failed Dependency
+425: Too Early
+426: Upgrade Required
+428: Precondition Required
+429: Too Many Requests
+431: Request Header Fields Too Large
+451: Unavailable For Legal Reasons
+500: Internal Server Error
+501: Not Implemented
+502: Bad Gateway
+503: Service Unavailable
+504: Gateway Timeout
+505: HTTP Version Not Supported
+506: Variant Also Negotiates
+507: Insufficient Storage
+508: Loop Detected
+509: Bandwidth Limit Exceeded
+510: Not Extended
+511: Network Authentication Required
+
+
+ 200 OK : It is confirm a successful request and send response.
+
+ 
+ - WriteHead() require content MIME type to define.
+ - MIME Type depends of your response type.
+ - Http supports various MIME types
+
+  text/plain       : Plain text without formats
+  text/html        : HTML markup as response
+  application/json : JSON format response
+  application/XML  : XML format response
+  application/pdf  : PDF
+  image/jpeg        : JPEG file 
+  etc....
+
+
+ - Every server application runs on specific port number.
+ - Port number will range from 1 to 45565.
+
+ 1 to 1023       : well Known port number
+ 1024 to 41591   : Registered Port numbers
+ 41592 to 655535 : Dynamic port numbers.
+
+- For your application always use "registered port" numbers.
+- Your server application listen() on specific registered port number.
+
+ syntax:
+
+    http.createServer().listen(port)
+
+ - You can request application using following methods
+
+  http://127.0.0.1:port
+    (or)
+  http://localhost:port
+
+
+ Node OS module: 
+
+ - It provides a set of methods that can get information about server operating system.
+ - It includes details like
+
+  hostname() : server name
+  platform   : server OS type
+  freemem    : total free memory avilable
+  cpus()     : It returns a set of objects that contains CPU details like processor model, speed etc.
+
+ Syntax:
+   
+     const os = require('os')
+  
+     console.log(os.platform());
