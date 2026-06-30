@@ -1,0 +1,66 @@
+3. Process Module
+
+ - Node is single threaded.
+ - It executes task simultaneously with background process.
+ - Every task requires  a process ID and other details which you can access using process module.
+ - Module properties include details like 
+
+ a) env
+ b) getuid             // for Linux or MacOS
+ c) getgid 
+ d) platform
+ e) version
+ f) freeMemory etc...
+
+ Syntax:
+
+ const process = require('process')
+
+ process.env;
+ process.getuid;
+
+
+4. Path Module
+
+ - It provides a set of properties and methods used to access file location and other details.
+ - It includes name, extension, type, size, root directory etc.
+
+  a) basename : returns the file name
+  b) dirname  : returns the directory name
+  c) extname  : returns the file exetension name
+  d) realtive : gets the realtive path
+  e) isAsolute : retrun true if the path is not relative [ isAsolute ]
+
+ etc...
+
+ Syntax:
+  
+  const path = require('path')
+  path.extname("file_path");
+
+ 
+5. File Stream[FS]
+
+ - It is used to handle files server side.
+ - It provides a set of properties and methods to read and write into files.
+ - Node file stream provides both synchronous and asynchronous methods.
+
+ Syntax:
+
+  var fs = require('fs');
+
+ var data = fs.readFileSync('path');
+
+ - readFileSync() uses a blocking technique, that blocks all other task inside process while performing the specified.
+
+ - readFile() is an asynchronous method.
+ - It uses unblocking technique, that executes the other tasks in background.
+
+ Syntax:
+
+   if(!error){
+        //handle data
+    }else{
+        //report error
+    }
+  })
